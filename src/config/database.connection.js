@@ -14,7 +14,6 @@ const db = new Pool(configDatabase)
 db.query('SELECT NOW()', (err, res) => {
     if(err) console.log(err)
     console.log(res.rows[0])
-    db.end()
 })
 
 export default db
