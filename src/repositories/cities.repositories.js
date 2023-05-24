@@ -1,10 +1,10 @@
 import db from "../config/database.connection.js";
 
-function getAll(){
+function getDepart(){
     return db.query(`SELECT * FROM cities`)
 }
 
-function getArrivalCities(departureCityId) {
+function getArrival(departureCityId) {
     return db.query(`
     SELECT DISTINCT arrival_city.*
     FROM flights
@@ -17,8 +17,8 @@ function getArrivalCities(departureCityId) {
 }
 
 const citiesRepositories = {
-    getAll,
-    getArrivalCities
+    getDepart,
+    getArrival
 }
 
 export default citiesRepositories

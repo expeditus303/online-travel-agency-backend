@@ -1,21 +1,21 @@
 import citiesRepositories from "../repositories/cities.repositories.js"
 
-async function getAll(){
-    const {rows: cities} = await citiesRepositories.getAll()
+async function getDepart(){
+    const {rows: cities} = await citiesRepositories.getDepart()
 
     return cities
 }
 
-async function getArrivalCities(departureCityId){
+async function getArrival(departureCityId){
 
-    const {rows: arrivalCities} = await citiesRepositories.getArrivalCities(departureCityId)
+    const {rows: arrivalCities} = await citiesRepositories.getArrival(departureCityId)
 
     return arrivalCities
 }
 
 const citiesServices = {
-    getAll,
-    getArrivalCities
+    getDepart,
+    getArrival
 }
 
 export default citiesServices

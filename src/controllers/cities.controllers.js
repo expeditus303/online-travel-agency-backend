@@ -1,9 +1,9 @@
 import { StatusCodes } from "http-status-codes";
 import citiesServices from "../services/cities.services.js";
 
-async function getAll(req, res, next) {
+async function getDepart(req, res, next) {
     try {
-        const cities = await citiesServices.getAll()
+        const cities = await citiesServices.getDepart()
 
         res.status(StatusCodes.OK).send(cities)
     } catch (err) {
@@ -11,11 +11,11 @@ async function getAll(req, res, next) {
     }
 }
 
-async function getArrivalCities(req, res, next){
+async function getArrival(req, res, next){
     const { departureCityId } = req.params
 
     try {
-        const arrivalCities = await citiesServices.getArrivalCities(departureCityId)
+        const arrivalCities = await citiesServices.getArrival(departureCityId)
 
         res.status(StatusCodes.OK).send(arrivalCities)
     } catch (err) {
@@ -25,8 +25,8 @@ async function getArrivalCities(req, res, next){
 }
 
 const citiesControllers = {
-    getAll,
-    getArrivalCities
+    getDepart,
+    getArrival
 }
 
 export default citiesControllers
